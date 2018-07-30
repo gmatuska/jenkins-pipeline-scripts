@@ -16,10 +16,10 @@ def call(Map vars, Closure body=null) {
               println(e)
             }
             echo "Docker containers have been removed"
-
             echo "cleanWorkspace: Removing existing workspace"
             deleteDir()
             echo "cleanWorkspace: Workspace is clean."
+          }
           if (body) { body() }
         }
       }
