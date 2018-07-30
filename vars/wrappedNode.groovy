@@ -11,7 +11,7 @@ def call(Map vars, Closure body=null) {
             withChownWorkspace { echo "cleanWorkspace: Ensuring workspace is owned by ${env.USER}" }
             echo "Removing all docker containers"
             try {
-              sh("for cid in \$(docker container ls -a | grep -v registry | grep -v my-jenkins-service | awk '{print $1}'); do docker container rm -vf \$cid; done")
+              sh("for cid in \$(docker container ls -a | grep -v registry | grep -v my-jenkins-service | awk '{print \$1}'); do docker container rm -vf \$cid; done")
             } catch (Exception e) {
               println(e)
             }
