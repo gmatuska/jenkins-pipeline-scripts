@@ -14,6 +14,7 @@ def call(Closure body=null) {
       } else if (arch == "ppc64le" || arch == "s390x") {
         image = "${arch}/busybox"
       }
+      //TODO: commenting this for debugging Jenkinsfile. Might not need this try catch block
       sh "docker run --rm -v \$(pwd):/workspace ${image} chown -R \"\$(id -u):\$(id -g)\" /workspace"
     } catch (Exception e) {
       println e
